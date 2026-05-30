@@ -1,0 +1,70 @@
+<!--
+Copyright (c) 2026 SentientFlow Labs
+Todos os direitos reservados.
+-->
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Painel Administrativo</title>
+
+<link rel="stylesheet" href="admin.css">
+</head>
+
+<body>
+
+<header class="topbar">
+    <h1>Administração - Conveniência 24h</h1>
+</header>
+
+<div class="container">
+
+    <div class="card">
+
+        <h2>Configurações Gerais</h2>
+
+        <label>WhatsApp</label>
+        <input type="text" id="whatsapp">
+
+        <label>Chave PIX</label>
+        <input type="text" id="pix">
+
+        <button id="salvarConfig">
+            Salvar Configurações
+        </button>
+
+    </div>
+
+    <div class="card">
+
+        <h2>Novo Produto</h2>
+
+        <input id="nome" placeholder="Nome">
+
+        <input id="preco" placeholder="Preço">
+
+        <input id="categoria" placeholder="Categoria">
+
+        <input id="imagem" placeholder="Imagem">
+
+        <textarea
+            id="descricao"
+            placeholder="Descrição">
+        </textarea>
+
+        <button id="adicionarProduto">
+            Adicionar Produto
+        </button>
+
+    </div>
+
+</div>
+
+<script src="../config/produtos.js"></script>
+<script src="../config/tema.js"></script>
+<script src="admin.js"></script>
+
+</body>
+</html>
