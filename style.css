@@ -1,0 +1,388 @@
+/*
+==============================================================================
+Delivery App Premium
+Loja de Conveniência 24h
+
+Copyright (c) 2026 SentientFlow Labs
+
+Todos os direitos reservados.
+
+Licença Comercial Proprietária.
+==============================================================================
+*/
+
+:root{
+    --primary:#16a34a;
+    --primary-dark:#15803d;
+    --secondary:#18181b;
+    --bg:#f4f4f5;
+    --card:#ffffff;
+    --text:#18181b;
+    --muted:#71717a;
+    --danger:#dc2626;
+    --shadow:0 10px 30px rgba(0,0,0,.08);
+    --radius:18px;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:Arial, Helvetica, sans-serif;
+    background:var(--bg);
+    color:var(--text);
+}
+
+img{
+    max-width:100%;
+    display:block;
+}
+
+button{
+    cursor:pointer;
+    border:none;
+}
+
+.container{
+    width:95%;
+    max-width:1280px;
+    margin:0 auto;
+}
+
+/* HEADER */
+
+.header{
+    background:#fff;
+    box-shadow:var(--shadow);
+    position:sticky;
+    top:0;
+    z-index:100;
+}
+
+.header .container{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:15px 0;
+}
+
+.logo-area{
+    display:flex;
+    align-items:center;
+    gap:15px;
+}
+
+.logo{
+    width:70px;
+    height:70px;
+    object-fit:cover;
+    border-radius:50%;
+}
+
+.logo-area h1{
+    font-size:1.5rem;
+}
+
+.logo-area p{
+    color:var(--muted);
+    font-size:.9rem;
+}
+
+/* BANNER */
+
+.banner{
+    width:100%;
+    overflow:hidden;
+}
+
+.banner img{
+    width:100%;
+    height:380px;
+    object-fit:cover;
+}
+
+/* SEARCH */
+
+.search-section{
+    padding:25px 0;
+}
+
+.search-section input{
+    width:100%;
+    padding:16px;
+    border:1px solid #ddd;
+    border-radius:12px;
+    font-size:1rem;
+}
+
+/* CATEGORIES */
+
+.categories{
+    margin-bottom:25px;
+}
+
+.categories .container{
+    display:flex;
+    gap:10px;
+    flex-wrap:wrap;
+}
+
+.category-btn{
+    background:#fff;
+    padding:10px 18px;
+    border-radius:999px;
+    border:1px solid #ddd;
+    transition:.3s;
+}
+
+.category-btn:hover{
+    background:#f4f4f5;
+}
+
+.category-btn.active{
+    background:var(--primary);
+    color:#fff;
+}
+
+/* PRODUCTS */
+
+.products-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fill,minmax(250px,1fr));
+    gap:25px;
+    padding-bottom:120px;
+}
+
+.product-card{
+    background:var(--card);
+    border-radius:var(--radius);
+    overflow:hidden;
+    box-shadow:var(--shadow);
+    transition:.3s;
+}
+
+.product-card:hover{
+    transform:translateY(-5px);
+}
+
+.product-image{
+    width:100%;
+    height:220px;
+    object-fit:cover;
+}
+
+.product-content{
+    padding:18px;
+}
+
+.product-title{
+    font-size:1.1rem;
+    margin-bottom:10px;
+}
+
+.product-description{
+    color:var(--muted);
+    font-size:.9rem;
+    margin-bottom:15px;
+    min-height:42px;
+}
+
+.product-footer{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.product-price{
+    font-size:1.2rem;
+    font-weight:bold;
+    color:var(--primary);
+}
+
+.add-cart{
+    background:var(--primary);
+    color:#fff;
+    padding:10px 14px;
+    border-radius:10px;
+}
+
+.add-cart:hover{
+    background:var(--primary-dark);
+}
+
+/* CART BUTTON */
+
+.cart-button{
+    position:fixed;
+    right:25px;
+    bottom:25px;
+    background:var(--primary);
+    color:#fff;
+    width:70px;
+    height:70px;
+    border-radius:50%;
+    font-size:24px;
+    box-shadow:var(--shadow);
+    z-index:999;
+}
+
+#cartCount{
+    position:absolute;
+    top:-5px;
+    right:-5px;
+    width:26px;
+    height:26px;
+    background:var(--danger);
+    color:#fff;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:.8rem;
+}
+
+/* MODALS */
+
+.modal{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.75);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    z-index:1000;
+}
+
+.hidden{
+    display:none;
+}
+
+.modal-content{
+    width:95%;
+    max-width:650px;
+    max-height:90vh;
+    overflow-y:auto;
+    background:#fff;
+    border-radius:24px;
+    padding:25px;
+}
+
+.modal-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:20px;
+}
+
+.modal-header button{
+    background:transparent;
+    font-size:24px;
+}
+
+.cart-item{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:12px 0;
+    border-bottom:1px solid #eee;
+}
+
+.cart-footer{
+    margin-top:20px;
+}
+
+.cart-footer input,
+.cart-footer textarea{
+    width:100%;
+    margin-top:10px;
+    padding:14px;
+    border:1px solid #ddd;
+    border-radius:12px;
+}
+
+.cart-footer textarea{
+    min-height:100px;
+    resize:vertical;
+}
+
+.pix-btn{
+    width:100%;
+    margin-top:15px;
+    padding:15px;
+    background:#2563eb;
+    color:#fff;
+    border-radius:12px;
+}
+
+.whatsapp-btn{
+    width:100%;
+    margin-top:12px;
+    padding:15px;
+    background:#16a34a;
+    color:#fff;
+    border-radius:12px;
+}
+
+/* PIX */
+
+.pix-content{
+    text-align:center;
+}
+
+.pix-qrcode{
+    width:250px;
+    margin:20px auto;
+}
+
+.pix-key-box{
+    background:#f4f4f5;
+    padding:15px;
+    border-radius:12px;
+    margin-top:15px;
+    word-break:break-all;
+}
+
+/* FOOTER */
+
+footer{
+    background:#18181b;
+    color:#fff;
+    text-align:center;
+    padding:25px;
+    margin-top:40px;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:768px){
+
+    .banner img{
+        height:220px;
+    }
+
+    .logo{
+        width:55px;
+        height:55px;
+    }
+
+    .logo-area h1{
+        font-size:1.2rem;
+    }
+
+    .products-grid{
+        grid-template-columns:1fr;
+    }
+
+    .cart-button{
+        width:60px;
+        height:60px;
+    }
+
+}
