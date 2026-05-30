@@ -1,0 +1,46 @@
+/*
+Copyright (c) 2026 SentientFlow Labs
+Todos os direitos reservados.
+*/
+
+body{
+    margin:0;
+    font-family:Arial,sans-serif;
+    background:#f4f4f5;
+}
+
+.topbar{
+    background:#18181b;
+    color:white;
+    padding:20px;
+}
+
+.container{
+    max-width:1200px;
+    margin:auto;
+    padding:20px;
+}
+
+.card{
+    background:white;
+    padding:20px;
+    border-radius:15px;
+    margin-bottom:20px;
+}
+
+input,
+textarea{
+    width:100%;
+    padding:12px;
+    margin-top:10px;
+    margin-bottom:15px;
+}
+
+button{
+    background:#16a34a;
+    color:white;
+    border:none;
+    padding:12px 20px;
+    border-radius:10px;
+    cursor:pointer;
+}
