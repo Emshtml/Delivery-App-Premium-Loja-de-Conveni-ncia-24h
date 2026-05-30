@@ -1,0 +1,24 @@
+Delivery App Premium
+Conveniência 24h
+
+Copyright (c) 2026 SentientFlow Labs
+
+Todos os direitos reservados.
+
+Este software é protegido por leis nacionais e internacionais
+de direitos autorais e propriedade intelectual.
+
+Permissões:
+- Uso autorizado pelo licenciado.
+- Personalização para uso próprio.
+
+Restrições:
+- Redistribuição.
+- Revenda não autorizada.
+- Remoção dos créditos autorais.
+- Comercialização sem autorização.
+
+O código-fonte permanece propriedade intelectual exclusiva
+do autor.
+
+Todos os direitos reservados.
