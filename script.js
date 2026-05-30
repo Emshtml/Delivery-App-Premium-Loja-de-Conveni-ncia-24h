@@ -247,4 +247,251 @@ function atualizarCarrinho(){
     cartCount.textContent =
         quantidadeTotal;
 
+}/* ======================================================
+   BUSCA
+====================================================== */
+
+searchInput.addEventListener(
+    "input",
+    function(){
+
+        const termo =
+            this.value.toLowerCase();
+
+        let lista = produtos.filter(
+            produto =>
+                produto.nome
+                .toLowerCase()
+                .includes(termo)
+        );
+
+        if(categoriaAtual !== "todos"){
+
+            lista = lista.filter(
+                produto =>
+                    produto.categoria ===
+                    categoriaAtual
+            );
+
+        }
+
+        renderProdutos(lista);
+
+    }
+);
+
+/* ======================================================
+   CATEGORIAS
+====================================================== */
+
+document
+.querySelectorAll(".category-btn")
+.forEach(btn => {
+
+    btn.addEventListener(
+        "click",
+        () => {
+
+            document
+            .querySelectorAll(".category-btn")
+            .forEach(b =>
+                b.classList.remove("active")
+            );
+
+            btn.classList.add("active");
+
+            categoriaAtual =
+                btn.dataset.category;
+
+            if(categoriaAtual === "todos"){
+
+                renderProdutos(produtos);
+
+                return;
+            }
+
+            renderProdutos(
+
+                produtos.filter(
+                    produto =>
+                    produto.categoria ===
+                    categoriaAtual
+                )
+
+            );
+
+        }
+    );
+
+});
+
+/* ======================================================
+   MODAL CARRINHO
+====================================================== */
+
+cartButton.addEventListener(
+    "click",
+    () => {
+
+        cartModal.classList.remove(
+            "hidden"
+        );
+
+    }
+);
+
+closeCart.addEventListener(
+    "click",
+    () => {
+
+        cartModal.classList.add(
+            "hidden"
+        );
+
+    }
+);
+
+/* ======================================================
+   MODAL PIX
+====================================================== */
+
+pixButton.addEventListener(
+    "click",
+    () => {
+
+        pixModal.classList.remove(
+            "hidden"
+        );
+
+        document.getElementById(
+            "pixKey"
+        ).textContent =
+            CONFIG.pix.chave;
+
+    }
+);
+
+closePix.addEventListener(
+    "click",
+    () => {
+
+        pixModal.classList.add(
+            "hidden"
+        );/* ======================================================
+   FINALIZAR WHATSAPP
+====================================================== */
+
+whatsappButton.addEventListener(
+    "click",
+    finalizarPedido
+);
+
+function finalizarPedido(){
+
+    const nome =
+        document.getElementById(
+            "customerName"
+        ).value;
+
+    const endereco =
+        document.getElementById(
+            "customerAddress"
+        ).value;
+
+    const observacoes =
+        document.getElementById(
+            "customerNotes"
+        ).value;
+
+    if(carrinho.length === 0){
+
+        alert(
+            "Seu carrinho está vazio."
+        );
+
+        return;
+    }
+
+    let mensagem =
+`🛒 *NOVO PEDIDO*
+
+👤 Cliente:
+${nome}
+
+📍 Endereço:
+${endereco}
+
+━━━━━━━━━━━━━━━
+
+`;
+
+    carrinho.forEach(item => {
+
+        mensagem +=
+
+`${item.nome}
+Qtd: ${item.quantidade}
+Subtotal: R$ ${(item.preco * item.quantidade).toFixed(2)}
+
+`;
+
+    });
+
+    let total = carrinho.reduce(
+
+        (acc,item) =>
+        acc + (
+            item.preco *
+            item.quantidade
+        ),
+
+        0
+
+    );
+
+    total += CONFIG.entrega.taxa;
+
+    mensagem +=
+
+`━━━━━━━━━━━━━━━
+
+🚚 Taxa:
+R$ ${CONFIG.entrega.taxa.toFixed(2)}
+
+💰 Total:
+R$ ${total.toFixed(2)}
+
+📝 Observações:
+${observacoes}
+
+Pagamento via PIX.
+`;
+
+    const url =
+
+`https://wa.me/${CONFIG.whatsapp}?text=${encodeURIComponent(mensagem)}`;
+
+    window.open(
+        url,
+        "_blank"
+    );
+
 }
+
+/* ======================================================
+   INICIALIZAÇÃO
+====================================================== */
+
+document.addEventListener(
+    "DOMContentLoaded",
+    () => {
+
+        renderProdutos();
+
+        atualizarCarrinho();
+
+    }
+);
+
+    }
+);
