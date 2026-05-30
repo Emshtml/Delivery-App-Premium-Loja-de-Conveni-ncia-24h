@@ -1,0 +1,300 @@
+<!--
+==============================================================================
+Delivery App Premium
+Loja de Conveniência 24h
+
+Copyright (c) 2026 SentientFlow Labs
+
+Todos os direitos reservados.
+
+Este software é protegido por leis nacionais e internacionais de direitos
+autorais e propriedade intelectual.
+
+É proibida a reprodução, redistribuição ou comercialização sem autorização.
+
+Licença Comercial Proprietária.
+==============================================================================
+-->
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Conveniência 24h Delivery</title>
+
+    <meta name="description"
+        content="Loja de Conveniência 24h Delivery - Entrega rápida e prática.">
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+    <!-- HEADER -->
+
+    <header class="header">
+
+        <div class="container">
+
+            <div class="logo-area">
+
+                <img
+                    src="./assets/img/logo.png"
+                    alt="Logo"
+                    class="logo">
+
+                <div>
+
+                    <h1>Conveniência 24h</h1>
+                    <p>Entrega rápida todos os dias</p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </header>
+
+    <!-- BANNER -->
+
+    <section class="banner">
+
+        <img
+            src="./assets/img/banner.jpg"
+            alt="Banner Principal">
+
+    </section>
+
+    <!-- BUSCA -->
+
+    <section class="search-section">
+
+        <div class="container">
+
+            <input
+                type="text"
+                id="searchInput"
+                placeholder="Buscar produtos...">
+
+        </div>
+
+    </section>
+
+    <!-- CATEGORIAS -->
+
+    <section class="categories">
+
+        <div class="container">
+
+            <button class="category-btn active"
+                data-category="todos">
+                Todos
+            </button>
+
+            <button class="category-btn"
+                data-category="refrigerantes">
+                Refrigerantes
+            </button>
+
+            <button class="category-btn"
+                data-category="energeticos">
+                Energéticos
+            </button>
+
+            <button class="category-btn"
+                data-category="aguas">
+                Águas
+            </button>
+
+            <button class="category-btn"
+                data-category="sucos">
+                Sucos
+            </button>
+
+            <button class="category-btn"
+                data-category="chocolates">
+                Chocolates
+            </button>
+
+            <button class="category-btn"
+                data-category="biscoitos">
+                Biscoitos
+            </button>
+
+            <button class="category-btn"
+                data-category="salgadinhos">
+                Salgadinhos
+            </button>
+
+        </div>
+
+    </section>
+
+    <!-- PRODUTOS -->
+
+    <main class="container">
+
+        <div id="productsGrid"
+            class="products-grid">
+
+            <!-- Renderizado via JS -->
+
+        </div>
+
+    </main>
+
+    <!-- BOTÃO CARRINHO -->
+
+    <button id="cartButton"
+        class="cart-button">
+
+        🛒
+
+        <span id="cartCount">
+            0
+        </span>
+
+    </button>
+
+    <!-- MODAL CARRINHO -->
+
+    <div id="cartModal"
+        class="modal hidden">
+
+        <div class="modal-content">
+
+            <div class="modal-header">
+
+                <h2>Seu Pedido</h2>
+
+                <button
+                    id="closeCart">
+                    ✕
+                </button>
+
+            </div>
+
+            <div id="cartItems">
+
+            </div>
+
+            <div class="cart-footer">
+
+                <h3>
+
+                    Total:
+                    R$
+                    <span id="cartTotal">
+                        0,00
+                    </span>
+
+                </h3>
+
+                <input
+                    type="text"
+                    id="customerName"
+                    placeholder="Seu nome">
+
+                <input
+                    type="text"
+                    id="customerAddress"
+                    placeholder="Endereço de entrega">
+
+                <textarea
+                    id="customerNotes"
+                    placeholder="Observações"></textarea>
+
+                <button
+                    id="pixButton"
+                    class="pix-btn">
+
+                    Pagar via PIX
+
+                </button>
+
+                <button
+                    id="whatsappButton"
+                    class="whatsapp-btn">
+
+                    Finalizar Pedido
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- MODAL PIX -->
+
+    <div id="pixModal"
+        class="modal hidden">
+
+        <div class="modal-content pix-content">
+
+            <h2>Pagamento PIX</h2>
+
+            <img
+                src="./assets/img/qrcode-pix.png"
+                alt="QR Code PIX"
+                class="pix-qrcode">
+
+            <div class="pix-key-box">
+
+                <strong>Chave PIX</strong>
+
+                <p id="pixKey">
+
+                    SUA_CHAVE_PIX_AQUI
+
+                </p>
+
+            </div>
+
+            <button
+                id="closePix">
+
+                Fechar
+
+            </button>
+
+        </div>
+
+    </div>
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <div class="container">
+
+            <p>
+
+                © 2026 SentientFlow Labs.
+                Todos os direitos reservados.
+
+            </p>
+
+        </div>
+
+    </footer>
+
+    <!-- CONFIG -->
+
+    <script src="./config/tema.js"></script>
+    <script src="./config/produtos.js"></script>
+
+    <!-- APP -->
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
