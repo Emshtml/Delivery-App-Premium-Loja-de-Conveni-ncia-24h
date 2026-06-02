@@ -31,7 +31,7 @@ const CONFIG = {
        CONTATO
     ========================================================== */
 
-    whatsapp: "5511999999999",
+    whatsapp: "5511976794749",
 
     email: "contato@conveniencia24h.com",
 
