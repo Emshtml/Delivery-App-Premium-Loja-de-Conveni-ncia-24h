@@ -46,7 +46,7 @@ const CONFIG = {
 
     pix: {
 
-        chave: "SUA_CHAVE_PIX_AQUI",
+        chave: "11976794749",
 
         nomeRecebedor:
             "Conveniência 24h",
